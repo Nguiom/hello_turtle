@@ -23,7 +23,4 @@ class Moving():
 		self.vel.angular.y=0
 		self.vel.angular.z=wz
 if __name__== "__main__": 
-    try:
-        Moving() 
-    except: 
-    	rospy.loginfo("End of the trip for Turtlesim") 
+	Moving() 
