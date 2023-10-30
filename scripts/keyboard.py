@@ -97,8 +97,5 @@ class ReadKey():
 
 if __name__== "__main__": 
 	keys=KBHit()
-	try:
-		ReadKey(keys) 
-	except: 
-		rospy.loginfo("End of the trip for Turtlesim") 
+	ReadKey(keys) 
 
