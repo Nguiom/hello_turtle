@@ -13,4 +13,32 @@
     output="screen" 
     />
 
+  <node 
+    pkg="hello_turtle" 
+    name="keyboard" 
+    type="keyboard.py"
+    output="screen" 
+    />
+
+   <node 
+    pkg="hello_turtle" 
+    name="move" 
+    type="move.py"
+    output="screen" 
+    />
+
+   <node 
+    pkg="hello_turtle" 
+    name="teleport" 
+    type="teleport.py"
+    output="screen" 
+    />
+
+   <node 
+    pkg="hello_turtle" 
+    name="khbit" 
+    type="khbit.py"
+    output="screen" 
+    />
+
 </launch>
