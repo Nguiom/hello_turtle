@@ -8,13 +8,6 @@
 
   <node 
     pkg="hello_turtle" 
-    name="spawner" 
-    type="turtleSpawn.py"
-    output="screen" 
-    />
-
-  <node 
-    pkg="hello_turtle" 
     name="keyboard" 
     type="keyboard.py"
     output="screen" 
