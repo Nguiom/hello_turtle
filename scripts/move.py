@@ -3,7 +3,7 @@
 import rospy
 from geometry_msgs.msg import Twist
 
-class Moving(self): 
+class Moving(): 
 	def __init__(self): 
 		rospy.init_node('Moving', anonymous=False)
 		self.cmd_vel = rospy.Publisher('/turtle1/cmd_vel',Twist, queue_size=10) 

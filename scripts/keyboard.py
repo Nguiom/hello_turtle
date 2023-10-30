@@ -22,7 +22,7 @@ import termios
 import atexit
 from select import select
 
-class KBHit(self):
+class KBHit():
 
     def __init__(self):
         '''Creates a KBHit object that you can call to do various keyboard things.
@@ -80,7 +80,7 @@ class KBHit(self):
         dr,dw,de = select([sys.stdin], [], [], 0)
         return dr != []
 
-class ReadKey(self,KBHit):
+class ReadKey(KBHit):
 	def __init__(self): 
 		rospy.init_node('Keyboard', anonymous=False)
 		self.key =rospy.Publisher('key',str, queue_size=10)

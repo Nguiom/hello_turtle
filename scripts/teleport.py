@@ -6,7 +6,7 @@ from turtlesim.msg import Pose
 from turtlesim.srv import TeleportAbsolute, TeleportRelative
 
 
-class Teleport(self):
+class Teleport():
 	def __init__(self): 
 		rospy.init_node('Teleport', anonymous=False)
 		self.key_sub= rospy.Subscriber('key',Pose, self.update_key)
