@@ -21,17 +21,17 @@ class Teleport(self):
 	def teleportA(self):
 		rospy.wait_for_service('/turtle1/teleport_absolute')
 		try:
-        	teleportA = rospy.ServiceProxy('/turtle1/teleport_absolute', TeleportAbsolute)
-        	resp1 = teleportA(5, 5, 0)
-   		except rospy.ServiceException as e:
-        	print(str(e))
+			teleportA = rospy.ServiceProxy('/turtle1/teleport_absolute', TeleportAbsolute)
+			resp1 = teleportA(5, 5, 0)
+		except rospy.ServiceException as e:
+			print(str(e))
 	def teleportR(self):
 		rospy.wait_for_service('/turtle1/teleport_relative')
 		try:
-        	teleportA = rospy.ServiceProxy('/turtle1/teleport_relative', TeleportRelative)
-        	resp1 = teleportR(0,3.1416)
-   		 except rospy.ServiceException as e:
-        	print(str(e))
+			teleportA = rospy.ServiceProxy('/turtle1/teleport_relative', TeleportRelative)
+			resp1 = teleportR(0,3.1416)
+		except rospy.ServiceException as e:
+			print(str(e))
 	def update_key(self,data):
 		self.key=self.tabla.get(data,(0))
 

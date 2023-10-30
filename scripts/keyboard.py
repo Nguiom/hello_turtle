@@ -9,8 +9,8 @@ class ReadKey(self):
 		rospy.init_node('Keyboard', anonymous=False)
 		self.key =rospy.Publisher('key',str, queue_size=10)
 		rate = rospy.Rate(10)
-		
-        while not rospy.is_shutdown():
+
+	while not rospy.is_shutdown():
 			self.getKey()
 			rate.sleep()
 		
