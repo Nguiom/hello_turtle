@@ -80,8 +80,8 @@ class KBHit():
         dr,dw,de = select([sys.stdin], [], [], 0)
         return dr != []
 
-class ReadKey(KBHit):
-	def __init__(self): 
+class ReadKey():
+	def __init__(self,KBHit): 
 		rospy.init_node('Keyboard', anonymous=False)
 		self.key =rospy.Publisher('key',str, queue_size=10)
 		rate = rospy.Rate(10)
