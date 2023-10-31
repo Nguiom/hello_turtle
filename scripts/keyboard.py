@@ -88,10 +88,10 @@ class ReadKey():
 		rate = rospy.Rate(10)
 
 		while not rospy.is_shutdown():
-			self.getKey()
+			self.getKey(KBHit)
 			rate.sleep()
 		
-	def getKey(self):
+	def getKey(self,KBHit):
 		if(KBHit.kbhit()):
 			self.last_key=KBHit.getch()
 			rospy.loginfo(self.last_key)
