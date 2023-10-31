@@ -4,7 +4,7 @@ import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
 from turtlesim.srv import TeleportAbsolute, TeleportRelative
-
+from std_msgs.msg import String
 
 class Teleport():
 	def __init__(self): 

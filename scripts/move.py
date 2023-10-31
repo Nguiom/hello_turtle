@@ -2,12 +2,13 @@
 
 import rospy
 from geometry_msgs.msg import Twist
+from std_msgs.msg import String
 
 class Moving(): 
 	def __init__(self): 
 		rospy.init_node('Moving', anonymous=False)
 		self.cmd_vel = rospy.Publisher('/turtle1/cmd_vel',Twist, queue_size=10) 
-		self.key_sub = rospy.Subscriber('key',str, self.judge)
+		self.key_sub = rospy.Subscriber('key',String, self.judge)
 		self.vel=Twist()
 		rate=rospy.Rate(10)
 		self.tabla={'w':(1,0),'s':(-1,0),'a':(0,1),'s':(0,-1)}
@@ -15,7 +16,7 @@ class Moving():
 			self.cmd_vel.publish(self.vel)
 			rate.sleep()
 	def judge(self,data):
-		vx,wz=self.tabla.get(data,(0,0))
+		vx,wz=self.tabla.get(data.data,(0,0))
 		self.vel.linear.x=vx
 		self.vel.linear.y=0
 		self.vel.linear.z=0

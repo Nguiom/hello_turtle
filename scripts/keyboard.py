@@ -21,6 +21,7 @@ import sys
 import termios
 import atexit
 from select import select
+from std_msgs.msg import String
 
 class KBHit():
 
@@ -83,7 +84,7 @@ class KBHit():
 class ReadKey():
 	def __init__(self,KBHit): 
 		rospy.init_node('Keyboard', anonymous=False)
-		self.key =rospy.Publisher('key',str, queue_size=10)
+		self.key =rospy.Publisher('key',String, queue_size=10)
 		rate = rospy.Rate(10)
 
 		while not rospy.is_shutdown():
@@ -93,6 +94,7 @@ class ReadKey():
 	def getKey(self):
 		if(KBHit.kbhit()):
 			self.last_key=KBHit.getch()
+			rospy.loginfo(self.last_key)
 			self.key.publish(self.last_key)
 
 if __name__== "__main__": 
