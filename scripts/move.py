@@ -16,7 +16,8 @@ class Moving():
 			self.cmd_vel.publish(self.vel)
 			rate.sleep()
 	def judge(self,data):
-		vx,wz=self.tabla.get(data.data,(0,0))
+		vx,wz=self.tabla.get(data.data)
+		rospy.loginfo(data.data)
 		self.vel.linear.x=vx
 		self.vel.linear.y=0
 		self.vel.linear.z=0

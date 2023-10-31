@@ -86,6 +86,7 @@ class ReadKey():
 		rospy.init_node('Keyboard', anonymous=False)
 		self.key =rospy.Publisher('key',String, queue_size=10)
 		rate = rospy.Rate(10)
+		self.last_key='i'
 
 		while not rospy.is_shutdown():
 			self.getKey(KBHit)
@@ -94,6 +95,9 @@ class ReadKey():
 	def getKey(self,KBHit):
 		if(KBHit.kbhit()):
 			self.last_key=KBHit.getch()
+			rospy.loginfo(self.last_key)
+			self.key.publish(self.last_key)
+		else:
 			rospy.loginfo(self.last_key)
 			self.key.publish(self.last_key)
 

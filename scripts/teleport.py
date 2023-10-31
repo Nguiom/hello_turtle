@@ -9,7 +9,7 @@ from std_msgs.msg import String
 class Teleport():
 	def __init__(self): 
 		rospy.init_node('Teleport', anonymous=False)
-		self.key_sub= rospy.Subscriber('key',Pose, self.update_key)
+		self.key_sub= rospy.Subscriber('key',String, self.update_key)
 		self.key=0
 		self.tabla={' ':(1),'r':(2)}
 		while not rospy.is_shutdown():
