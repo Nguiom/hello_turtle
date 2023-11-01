@@ -33,7 +33,7 @@ class Teleport():
 		except rospy.ServiceException as e:
 			print(str(e))
 	def update_key(self,data):
-		self.key=self.tabla.get(data,(0))
+		self.key=self.tabla.get(data.data,(0))
 
 if __name__== "__main__": 
     try:

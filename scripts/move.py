@@ -11,13 +11,14 @@ class Moving():
 		self.key_sub = rospy.Subscriber('key',String, self.judge)
 		self.vel=Twist()
 		rate=rospy.Rate(10)
-		self.tabla={'w':(1,0),'s':(-1,0),'a':(0,1),'s':(0,-1)}
+		self.tabla={'w':(1,0),'s':(-1,0),'a':(0,1),'d':(0,-1)}
 		while not rospy.is_shutdown():
 			self.cmd_vel.publish(self.vel)
 			rate.sleep()
 	def judge(self,data):
-		vx,wz=self.tabla.get(data.data)
-		rospy.loginfo(data.data)
+		temp=self.tabla.get(data.data,(0,0))
+		rospy.loginfo(temp)
+		vx,wz=temp
 		self.vel.linear.x=vx
 		self.vel.linear.y=0
 		self.vel.linear.z=0
