@@ -11,13 +11,19 @@ class Teleport():
 		rospy.init_node('Teleport', anonymous=False)
 		self.key_sub= rospy.Subscriber('key',String, self.update_key)
 		self.key=0
+		self.cont=True
 		self.tabla={' ':(1),'r':(2)}
+		rate=rospy.Rate(10)
 		while not rospy.is_shutdown():
-			rospy.spin()
-			if(self.tabla==1):
-				teleportA()
-			elif(self.tabla==2):
-				teleportR()
+			if(self.key==1 & self.cont):
+				self.teleportA()
+				self.cont=False
+			elif(self.key==2 & self.cont):
+				self.teleportR()
+				self.cont=False
+			elif(self.key==0):
+				self.cont=True
+			rate.sleep()
 	def teleportA(self):
 		rospy.wait_for_service('/turtle1/teleport_absolute')
 		try:
@@ -28,7 +34,7 @@ class Teleport():
 	def teleportR(self):
 		rospy.wait_for_service('/turtle1/teleport_relative')
 		try:
-			teleportA = rospy.ServiceProxy('/turtle1/teleport_relative', TeleportRelative)
+			teleportR = rospy.ServiceProxy('/turtle1/teleport_relative', TeleportRelative)
 			resp1 = teleportR(0,3.1416)
 		except rospy.ServiceException as e:
 			print(str(e))

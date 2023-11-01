@@ -102,6 +102,9 @@ class ReadKey():
 			self.key.publish(self.last_key)
 
 if __name__== "__main__": 
-	keys=KBHit()
-	ReadKey(keys) 
+	try:
+		keys=KBHit()
+		ReadKey(keys)  
+	except: 
+		rospy.loginfo("End of the trip for Turtlesim") 
 
