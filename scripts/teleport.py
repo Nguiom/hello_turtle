@@ -15,10 +15,10 @@ class Teleport():
 		self.tabla={' ':(1),'r':(2)}
 		rate=rospy.Rate(10)
 		while not rospy.is_shutdown():
-			if(self.key==1 & self.cont):
+			if(self.key==1 and self.cont):
 				self.teleportA()
 				self.cont=False
-			elif(self.key==2 & self.cont):
+			elif(self.key==2 and self.cont):
 				self.teleportR()
 				self.cont=False
 			elif(self.key==0):
